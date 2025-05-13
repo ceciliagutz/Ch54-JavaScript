@@ -44,8 +44,11 @@ hoisting: comportamiento en JS que permite a las declaración de variables(var)
 o funciones se eleven al comienzo de su ámbito antes de que se ejecute el código.
 
 */
+saludar("Ces")
 
-
+function saludar(nombre){
+  console.log("Que te gustaría de regalo de cumpleaños " + nombre);
+}
 
 
 
@@ -63,11 +66,34 @@ sintaxis:
     };
 */
 
+const darRegalo = function (nombre, regalo){
+  console.log(`Felicidades ${nombre}, te traje ${regalo}`)
+;
+};
 
+darRegalo("let","Doriesquites");
+
+/* Realizar uns función declarada que sume dos números y retorne el resultado */
+
+function sumar(a, b) {
+  let suma = a + b;
+return suma;
+};
+console.log(sumar(17,8));
+
+
+/* Realizar uns función expresada que reste dos números y retorne el resultado */
+
+const restarNumeros = function (num1, num2){
+  console.log (`El resultado de restar es: ${ num1- num2}`);
+};
+
+restarNumeros(23,8);
 
 
 
 /*
+
  ------------ Funciones autoinvocadas -----------------------
              (selft-invoking functions)
 Funciones que se autoinvocan, se pueden definir con funciones anónimas.
