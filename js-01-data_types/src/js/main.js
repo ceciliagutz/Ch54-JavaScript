@@ -47,6 +47,17 @@ let valor2 = 4;
 console.log("El resultado de " + valor1 + " * " + valor2 + " = " + valor1 * valor2 + " pesos.");
 console.log(`El resultado de ${valor1} * ${valor2} = ${valor1*valor2} pesos.`);
 
+/* Crear una variable con el nombre de la personas que cumple años.
+Crear una variable con el regalo que le daras
+
+Mostras en consola el mensaje que incluye el nombre de la persona y el regalo*/
+
+let nombre= "Leticia";
+let regalo= "Perfume";
+
+console.log(`Feliz cumpleaños a ${nombre} y su regalo es un ${regalo}`)
+
+
 /*
  Tipos de datos number.
 
@@ -67,6 +78,13 @@ console.log( typeof +Infinity ); // 'number'
 console.log( typeof ( 3 + "Viernes temático" ) ); // 'string'
 console.log( typeof ( "3Viernes temático" ) ); // 'string'
 console.log( 4 / 0 ); // +Infinity
+
+/* Comprueba si las siguientes variables son del tipo number */
+const num1 = 42;
+console.log (typeof num1 === "number");
+/* Comprueba si las siguientes variables son del tipo string */
+const nameCh54 = "Luis";
+console.log (typeof nameCh54 === "string");
 
 
 /*
@@ -90,7 +108,7 @@ console.log( `MAX_SAFE_INTEGER + 5: ${Number.MAX_SAFE_INTEGER + 5 }`); // 900719
  tipo number no pueda representar o no es seguro.
 
  Las operaciones con un bigInt se debe hacer con otro bigInt
-
+Debe de llevae la n
 */
 const myBigInt = 9007199254740991n;
 console.log( typeof myBigInt ); // bigint
