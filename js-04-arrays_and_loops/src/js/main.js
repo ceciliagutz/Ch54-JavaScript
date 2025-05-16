@@ -41,7 +41,7 @@ for (let i = 0; i < colores.length; i++) {
 }
 
 for ( const color of colores ) {
-    console.log( color );
+    console.log( colores );
 }
 
 // ---------------------- Ejercicio con for of ---------------------
@@ -54,7 +54,63 @@ for ( const color of colores ) {
 const cantantes = ["Juan Gabriel", "José José", "Rocío Dúrcal", "Ana Gabriel"];
 const refListaCantantes = document.getElementById("cantantes-lista");
 
+const imprimirCantantes2 = ( listaCantantes ) => {
+    let cantantesConcatenados = "";
+    for (const cantante of listaCantantes) {
+        // cantantesConcatenados = cantantesConcatenados + cantante + " - ";
+        cantantesConcatenados +=  cantante + " - ";
+    }
+    return cantantesConcatenados;
+}
+console.log(imprimirCantantes2(cantantes));
 
+
+/**
+ *  Del siguiente arreglo de cantantes, mostrar en el DOM, el listado como unorder list.
+ *  const cantantes = ["Juan Gabriel", "José José", "Rocío Dúrcal", "Ana Gabriel"];
+ *  - Usar for of
+ *  - De preferencia usar una función 
+ *     let lista  =<li>Juan Gabriel</li> <li>José José</li><li>Rocí Dúrcal</li><li>Ana Gabriel</li>
+ */
+const cantantes2 = ["Juan Gabriel", "José José", "Rocío Dúrcal", "Ana Gabriel"];
+
+function generarListaHTML(lista) {
+  let listaHTML = '';
+  for (const cantante of lista) {
+    listaHTML += `<li>${cantante}</li>`;
+  }
+  return listaHTML;
+}
+
+const ul = document.getElementById("lista-cantantes");ul.innerHTML = generarListaHTML(cantantes2);
+
+
+/* const mostrarListaEnDOM = arr => {
+    let ul = document.getElementById('cantantes-lista');
+    let listaDesordenada = "";
+    
+    for (const cantante of arr) {
+        listaDesordenada += `<li>${cantante}</li>`;
+    }
+    ul.innerHTML = listaDesordenada;
+}
+mostrarListaEnDOM(cantantes); */
+
+
+
+
+
+
+/* for ( const refListaCantantes of cantantes ) {
+    console.log( cantantes );
+}
+// Imprimir en consola cada uno de los cantantes, usandor for of
+const imprimirCantantes = ( listaCantantes ) => {
+    for (const cantante of listaCantantes) {
+        console.log(cantante);
+    }
+}
+imprimirCantantes(cantantes); */
 
 // ------------------- Uso de break en ciclos ----------------------------
 // break detiene la ejecución de la iteración en curso y termina el ciclo.
@@ -64,7 +120,7 @@ let iteracion = 0;
 for ( ;   ;  ){
     console.log( `Núm de iteración: ${iteracion}` ); // 0, 1, 2, 3, 4
     iteracion++;
-    if ( iteracion === 5 ){
+    if ( iteracion === 2 ){
         break;
     }
 }
@@ -80,7 +136,12 @@ for (let i = 1; i <= 7; i++ ){
 
 }
 
-
+//Ejercicios mentales
+let myIteration; // undefined
+for (myIteration = 0; myIteration <= 5; myIteration++) {
+    console.log("For loop", myIteration ); //  0...5    
+}
+console.log("Final", myIteration); // 6
 
 
 
@@ -120,3 +181,45 @@ for (let i = 0 ; i <= 5; i++ ){
 */
 
 
+/* 
+Pregunta al usuario si quiere que se genere su número de la suerte.
+Si la respuesta es "Sí", generar de forma aleatoria un número.
+En caso contrario "despedirse"
+
+*/
+
+/* while( confirm ("¿Quieres conocer tu númeor de la suerte?")){
+    const numeroSuerte = Math.random();
+    console.log("Tu número de la suerte es:" + numeroSuerte);
+} */
+
+//For loop vs while loop
+
+for (let i = 0; i < 5; i++){
+    console.log("For loop", i);
+}
+
+let numIteracion =0;
+while (numIteracion <5){
+    console.log("while loop", numIteracion);
+    numIteracion++;
+}
+
+/*  
+Uso de Math.random();
+Generar 5 número aleatorios.
+los numero deben estar entre el 0.0 y 10.0 (sin incluir 10.0)
+*/
+
+
+const generarNumerosAleatorios = (cantidad) => {
+   
+    for (let i = 0; i < cantidad; i++) {
+        const numeroAleatorio = Math.random() * 10; //.99999
+        const escalarNumero = numeroAleatorio * 10; //9.9999
+        const numerosEntero = Math.floor(escalarNumero); //9
+        console.log("Número aleatorio: ", escalarNumero); // 0 .... 9
+    }
+    return numerosAleatorios;
+};
+generarNumerosAleatorios(5);
