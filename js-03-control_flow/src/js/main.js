@@ -254,6 +254,119 @@ console.log(velo);
 */
 
 
+/*  Era la primera opción para la creacion de una instrucción
+const verificarPagoDeTarjeta =( estaPagado ) =>{
+let msj;
+if( estaPagado){
+        msj="La tarjeta ha sido pagada";
+ } else {
+    msj = "La tarjeta no ha sido pagada";
+ }
+ return msj;
+
+}
+console.log( verificarPagoDeTarjeta (true));
+console.log( verificarPagoDeTarjeta(false)); */
+
+//Versión con operador tenario
+
+const verficarPagoDeTarjetaUsandoTernario = ( estaPagado ) =>{
+    return estaPagado ? "La tarjeta ha sido pagada" : "La tarjeta no ha sido pagada";
+}
+console.log( verficarPagoDeTarjetaUsandoTernario( true ) ); // "La tarjta ha sido pagada"
+console.log( verficarPagoDeTarjetaUsandoTernario( false ) ); // "La tarjeta no ha sido pagada"
+
+/* 
+Dado un número entero, imprmir:
+"Negativo": si el número es menor a 0
+"Cero": Si el número es 0.
+"Positivo": Si el número es mayor a cero pero menor a 100
+"Grande": Sie el número es mayor o igual a 100
+-Realizar una función que reciba el número y retorne el mensaje.
+-El retorno debe ser impreso en la consola.
+-Realizar una versión if-else, switch y operador tenario.
+*/
+
+
+/* const validarNumero = (numeros) => {
+    let estado;
+        switch (numeros){
+            case ("<=0") :
+                estado = "Negativo";
+            break;
+            case ("= 0"):
+                estado = "Cero"
+            break;
+            case (">=1" && "<=99" ):
+                estado = "Positivo";
+            break;
+            case (">=100" ):
+                estado = "Grande";
+            break;
+
+        }
+return estado;
+
+} */
+  
+
+/* console.log( validarNumero(0));
+console.log( validarNumero(9));
+console.log( validarNumero(100));
+console.log( validarNumero(101)); */
+
+
+// ----- Function Switch ----------
+function evaluarElNumeroSwitch(numero) {
+
+    switch ( true ) {
+        case (numero < 0):
+            mensaje = "Negativo";
+            break;
+        case (numero === 0):
+            mensaje = "Cero";
+            break;
+        case (numero >0 && numero < 100):
+            mensaje = "Positivo";
+            break;
+        case (numero >= 100):
+            mensaje = "Grande";
+            break;
+        default:
+            mensaje = "Numero desconocido";
+    }
+    return mensaje;
+};
+
+console.log(evaluarElNumeroSwitch(-45) ); // Negativo
+console.log(evaluarElNumeroSwitch(0) ); // Cero
+console.log(evaluarElNumeroSwitch(45) ); // Positivo
+console.log(evaluarElNumeroSwitch(100) ); // Grande
+
+// ----- Function IF-Else ----------
+const validarNumero2 = numeros2 => {
+    if( numeros2 < 0 ) return " negativo";
+    else if (numeros2 === 0) return "cero";
+  else if (numeros2 >= 1 && numeros2 <= 99) return "Positivo.";
+  else if (numeros2 >=100) return "Grande";
+}
+
+const num = validarNumero2(9);
+console.log(num); 
+
+
+
+//--------------Operador ternario----------------
+
+const validarNumeroOperador2 = numeros2 =>
+  numeros2 < 0 ? "Negativo" :
+  numeros2 === 0 ? "Cero" :
+  numeros2 >= 1 && numeros2 <= 99 ? "Positivo" :
+  numeros2 >= 100 ? "Grande" :
+  null; 
+
+const num1 = validarNumeroOperador2(0);
+console.log(num1); // "Positivo"
 
 
 /**
