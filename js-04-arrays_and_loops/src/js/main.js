@@ -212,7 +212,7 @@ los numero deben estar entre el 0.0 y 10.0 (sin incluir 10.0)
 */
 
 
-const generarNumerosAleatorios = (cantidad) => {
+/* const generarNumerosAleatorios = (cantidad) => {
    
     for (let i = 0; i < cantidad; i++) {
         const numeroAleatorio = Math.random() * 10; //.99999
@@ -222,4 +222,81 @@ const generarNumerosAleatorios = (cantidad) => {
     }
     return numerosAleatorios;
 };
-generarNumerosAleatorios(5);
+generarNumerosAleatorios(5); */
+
+
+/* const generarNumerosAleatorios2 = (cantidad, minNum = 0, maxNum = 10) => {
+   
+    for (let i = 0; i < cantidad; i++) {
+        const numeroAleatorio = Math.random(); 
+        const escalarNumero = numeroAleatorio * ((maxNum - minNum) + 1 ); //0.0 al 10.99
+        const numerosEntero = Math.floor(escalarNumero + minNum); //9
+        console.log("Número aleatorio: ", numerosEntero); // 0 .... 9
+    }
+   
+};
+generarNumerosAleatorios2(5);
+generarNumerosAleatorios2(10, 50, 60);
+ */
+
+const generarNumerosAleatorios2 = (cantidad, minNum = 0, maxNum = 10) => {
+   
+    for (let i = 0; i < cantidad; i++) {
+        const numeroAleatorio = Math.random(); 
+        const escalarNumero = numeroAleatorio * ( (maxNum - minNum ) + 1); 
+        const numerosEntero = Math.floor(escalarNumero + minNum); 
+        console.log(`Numero aleatorio entre ${minNum} y ${maxNum} : ${numerosEntero}`); 
+    }
+   
+};
+generarNumerosAleatorios2(5);
+generarNumerosAleatorios2(10, 50 , 60);
+
+/* 
+        Melate Chocolate
+        1. Al pulsar el botón Generar mis números de la suerte.
+        2. Generar 6 números aleatorios entre el 1 y el 54
+        Mostrar el resultado en el DOM
+
+*/
+
+/**
+ * Generar un número aleatorio entre un rango de numeros
+ * @param {number} minNum 
+ * @param {number} maxNum 
+ */
+const generarNumeroAleatorio  = (minNum, maxNum) => {
+        const numeroAleatorio = Math.random ();
+        const escalarNumero = numeroAleatorio * ((maxNum - minNum) + 1 );
+        const numerosEntero = Math.floor (escalarNumero + minNum);
+        return numerosEntero;
+}
+
+const elNumeroExisteEnArreglo =(arreglo, numero) => {
+    for(const elemento of arreglo){
+        if(elemento === numero) return true
+    } 
+    return false;    
+    
+   /*  return arreglo.includes(numero); */
+}
+
+const imprimirMelateChocolate = ( numeros ) => {
+    const referencia = document.getElementById("melate-chocolate");
+    referencia.innerHTML = ` ${numeros.join(' - ')} `;
+}
+const generarNumerosDeLaSuerte = (size = 6, minNum = 1, maxNum = 54) => {
+    const numeros = [];
+    while( numeros.length < size ){
+        const numAleatorio = generarNumeroAleatorio(minNum, maxNum);
+        if( elNumeroExisteEnArreglo(numeros, numAleatorio) === false ){
+            numeros.push(numAleatorio);
+        }
+    }
+    imprimirMelateChocolate( numeros);
+    
+}
+
+document.getElementById("generarnumbut").addEventListener("click", () => {
+    generarNumerosDeLaSuerte();
+});
