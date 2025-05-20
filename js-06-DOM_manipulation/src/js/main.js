@@ -41,6 +41,42 @@ const changeElementById = () =>{
 
 changeElementById();
 
+
+/* function insertarTarjeta() {
+  const contenedor = document.getElementById('nombreCecilia');
+
+  contenedor.innerHTML = `
+    <div class="card" style="width: 18rem;">
+      <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Cecilia Gutierrez</h5>
+        <p class="card-text">Un texto de ejemplo para completar el contenido de la tarjeta.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  `;
+}
+
+// Invoca la función
+insertarTarjeta(); */
+
+const cambiaElemntos = ( name ) => {
+    const descripcionOperadores = document.getElementById("nombreCecilia");
+    console.log(descripcionOperadores);
+    descripcionOperadores.innerHTML = 
+        `<div class="card" style="width: 18rem;">
+        <img src = "" class="card-img-top" alt="" >
+            <div class="card-body">
+                <h5 class="card-title">${name}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+</div > `;
+}
+cambiaElemntos("Cecilia Gutierrez");
+
+
+
 /**
  * Modificar elementos por su tag(etiqueta HTML)
  */
@@ -53,6 +89,17 @@ const changeElementsByTagName =  () => {
    }
 
 }
+
+
+/* 
+Realizar una función que lea todos los botónes de la página y muestre el consola el número total de botones
+*/
+
+
+
+/* const elementsByTagButton = () => {
+    const listButtonItem = document.getElementsByTagName("button")
+} */
 
 // changeElementsByTagName();
 
@@ -86,6 +133,8 @@ const getListItemsByQuerySelector = () =>{
 }
 
 getListItemsByQuerySelector();
+
+
 
 
 // ----------------------- Ejercicio ----------------------------------
