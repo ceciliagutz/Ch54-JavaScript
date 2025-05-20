@@ -30,10 +30,18 @@ true && false // Expresión lógica (devuelve false)
 // ---- Precedencia de operadores -------------------------
 // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
 
-console.log(  3 * 2 / 2  ); // 
-console.log(  3 / 2 * 2  ); // 
-console.log(  2 * 4 / 2**3 ); // 
-console.log(  3 ** 2 ** 3  ); // 
+console.log(  3 * 2 / 2  ); // 3
+console.log(  3 / 2 * 2  ); // 3
+console.log(  2 * 4 / 2**3 ); // 1 
+console.log(  3 ** 2 ** 3  ); // 6561
+
+
+let a2, b2, c2;
+let a3;
+let b3;
+let c3;
+let a4 = a5 = a6 = true; //No se recomienda
+
 
 // ---------------- Opéradores relacionales ----------------
 /*
@@ -51,16 +59,16 @@ console.log(  3 ** 2 ** 3  ); //
    - null se convierte a 0.
    - undefined se convierte a NaN.
 */
-console.log(  3 < 5 ); // 
-console.log(  3 > 5 ); // 
-console.log(  3 <= 3 ); // 
-console.log(  3 >= 3 ); // 
+console.log(  3 < 5 ); // true
+console.log(  3 > 5 ); // false
+console.log(  3 <= 3 ); // true
+console.log(  3 >= 3 ); // true
 
-console.log( null <= 0 ); // 
-console.log( undefined <= 0 ); // 
+console.log( null <= 0 ); //  true
+console.log( undefined <= 0 ); // false
 
-console.log(  "3" >= 3 ); // 
-console.log(  "tree" >= 3 ); // 
+console.log(  "3" >= 3 ); // true
+console.log(  "tree" >= 3 ); //  false
 
 
 // ---------------- Operadores de igualdad ----------------
@@ -77,11 +85,13 @@ console.log(  "tree" >= 3 ); //
   - null y undefined NO son convertidos a cero
 
 */
-console.log(  3 == 3 );  // 
-console.log(  3 == "3" ); // 
-console.log(  3 === "3" ); // 
-console.log(  3 !== "3" ); // 
-console.log(  3 != "3" );  // 
+console.log(  3 == 3 );  // true
+console.log(  3 == "3" ); //  true
+console.log(  3 === "3" ); // false
+console.log(  3 !== "3" ); //  true
+console.log(  3 != "3" );  //  false
+
+// Cual es la diferencia entre =, ==, === (el primero simbolo de asigancióm, el segundo operador de igualdad, y tercero igualda estricta comparando valor y tipo)
 
 // Si un operando es null y el otro undefined, devuelve verdadero(true).
 console.log( null == undefined ); // true
@@ -92,24 +102,37 @@ const obj1 = { name: "Juan" };
 const obj2 = { name: "Juan" };
 const obj3 = obj1;
 
-console.log( obj1 == obj2 ); // 
-console.log( obj1 == obj3 ); // 
+console.log( obj1 == obj2 ); //  false, porque no hace referencia al mismo objeto
+console.log( obj1 == obj3 ); // true
 
 //--- Si los operandos son de diferente tipos, intenta convertirlos al mismo tipo antes de comparar:-----
 // Al comparar un número con una cadena, convierte la cadena en un valor numérico.
-console.log(  3 == "3" ); // 
+console.log(  3 == "3" ); // true
 
 
 // Si uno de los operandos es booleano, convierte el operando booleano en 
 // 1 si es verdadero y en 0 en el caso de falso.
-console.log(  1 == true ); // 
-console.log(  0 == false ); // 
+console.log(  1 == true ); // true
+console.log(  0 == false ); // true
 
 //--- Si los operandos tienen el mismo tipo, se comparan de la siguiente manera:-----
 // String: devuelve verdadero solo si ambos operandos tienen los mismos caracteres y en el mismo orden.
-console.log( "hola" == "hola" ); // 
-console.log( "hola" == "Hola" ); // 
-console.log( 'Hola "Ch5x" ' == 'Hola "Ch5x" ' ); 
+console.log( "hola" == "hola" ); //  true
+console.log( "hola" == "Hola" ); // false
+console.log( 'Hola "Ch5x" ' == 'Hola "Ch5x" ' ); // true
+
+
+/*
+  Uso del caracter de escape:
+  \n  nueva línea
+  \t  tabulación
+  \\  barra invertida
+  \'  comilla simple
+  \"  comilla doble
+  \`   comilla invertida
+  \b  retroceso
+  \uXXXX  unicode   \u00A9 = ©
+*/
 
 
 // Se recomienda usar el método localCompare(): compara cadenas de texto de acuerdo con las reglas de un idioma específico
@@ -169,7 +192,7 @@ console.log( numero, dinero); //
 
 // suma unaria (No cambia el signo el números)
 let pago = +dinero; // 
-console.log( pago ); // 
+console.log( pago ); //  -3
 
 let intereses = +"5.23"; // 
 console.log( 5 + intereses ); //  
@@ -194,14 +217,14 @@ console.log( pagoFinal += 5 + parseFloat ("3") ); //
 
 let number = 10;
 ++ number; // number = number + 1
-console.log( number ); // 
+console.log( number ); // 11
 number ++; // number; number = number + 1; 
-console.log( number ); // 
+console.log( number ); // 12
 
 // Uso de post-incremento
 number = 20;
-console.log( number ); // 
-console.log( number = number + 1 ); //
+console.log( number ); // 20
+console.log( number = number + 1 ); //21
 // valor++
 number = 20;
 console.log( number++ ); // 
@@ -237,9 +260,11 @@ let a = 0, b = 0; // a y b son declaradas con let
 
 for( ; a < 3 ; b = a++){ 
   console.log( a , b ); 
-
+            // 0, 0 
+            // 1, 0 
+            // 2, 1
 }
-console.log( a , b ); //
+console.log( a , b ); //3, 2
 
 // ------------ Ejercicio Mental ---------------------
 a = 0, b = 0; // 
@@ -255,7 +280,9 @@ console.log( a , b ); //
  También son conocidos como operadores de corto circuito ( short-circuit operators ).
 
  OP1 && OP2 Si OP1 es verdadero, se retorna la expresión de OP2.
+ op1 && op2 si OP1 es falso, se retorna la expresión OP1
  OP1 || OP2 Si OP1 es verdadero, se retorna la expresión de OP1.
+ op1 || op2 si OP1 es falso, se retorna la expresión OP1
 
  Se consideran falsos: "", 0, null, undefined, NaN
 */
@@ -287,7 +314,7 @@ loggedIn && console.log("Bienvenido Usuario"); //
 // ------------ ejercicio-------------------------------
 // Mostrar en consola "Acceso permitido" solo si la variable esAdmin = true
 let esAdmin = true;
-
+esAdmin && console.log("Acceso permitido");
 
 // ------------------------------------------------------
 let nombre = "";
@@ -302,5 +329,9 @@ console.log( "Hola " + usuario ); // Invitado
   Imprimir en consola "Acceso Denegado" Si la variable esAutorizado = false
   En caso contrario imprimir "Acceso concedido".
 */
-let autorizado = true;
+let esAutorizado = true;
+
+console.log( esAutorizado && "Acceso concedido" || "Acceso Denegado" );
+
+
 
