@@ -90,17 +90,12 @@ const changeElementsByTagName =  () => {
 
 }
 
-
-/* 
-Realizar una función que lea todos los botónes de la página y muestre el consola el número total de botones
-*/
-
-
-
-/* const elementsByTagButton = () => {
+const elementsByTagButton = () => {
     const listButtonItem = document.getElementsByTagName("button")
-} */
+    console.log (listButtonItem);
+} 
 
+elementsByTagButton();
 // changeElementsByTagName();
 
 /**
@@ -134,8 +129,15 @@ const getListItemsByQuerySelector = () =>{
 
 getListItemsByQuerySelector();
 
-
-
+/* 
+Realizar una función que lea todos los botónes de la página y muestre el consola el número total de botones
+*/
+const getListItemByButton = () => {
+     const listItemButton = document.querySelectorAll("button");
+     console.log (listItemButton);
+    
+}
+getListItemByButton();
 
 // ----------------------- Ejercicio ----------------------------------
 // Seleccionar la imagen de dinosaurio que se muestra.
