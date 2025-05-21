@@ -60,6 +60,9 @@ Características clave de los módulos JS:
     return a + b;
   }
 
+  export { PI, sumar }; //Exportacón nombrada
+
+
   También puedes exportar por defecto (solo uno por módulo):
   export default function saludar(nombre) {
     return `¡Hola, ${nombre}!`;
@@ -78,9 +81,12 @@ Características clave de los módulos JS:
 
 
 // importa las funciones del footer y header e invócalos para que se ejecuten
+import { insertMainHeader,myVar } from "../modules/header/header.js";
+insertMainHeader( document.getElementById("header") );
 
 
-
+import { insertMainFooter  } from "../modules/footer/footer.js";
+insertMainFooter (document.getElementById("footer"));
 /*
   Uso del local Storage.
 
