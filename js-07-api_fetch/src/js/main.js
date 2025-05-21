@@ -105,8 +105,29 @@ insertMainFooter (document.getElementById("footer"));
 
 */
 
+/*
+ Crear en el HTML un input y un botón para guardar el valor en el localStorage.
+  
+  Al cargar la página, si hay un valor guardado, mostrarlo en el titulo H1 "Hola, {nombre}".
+  En caso contrario, mostrar "Hola, persona invitada".
+*/
+const leerNombreDelLocalStorage = () => {
+const nombre = localStorage.getItem("nombre") || "persona invitada";
+ return nombre;
+}
+const insertarNombreEnElDom = () => {
+  const refH1 = document.querySelector("#bienvenida");
+  const nombre = leerNombreDelLocalStorage();
+  //refH1.innerHTML = `Hola ${nombre}`;
+  refH1.textContent = `Hola ${nombre}`;
+}
+insertarNombreEnElDom();
 
-
+const manejoDelBotonGuardar = () => {
+  const refInput = document.querySelector("#nombreInput");
+  const newName = refInput.value;
+  newName &&  localStorage.setItem("nombre", newName);
+}
 
 /*
   Programación síncrona.
