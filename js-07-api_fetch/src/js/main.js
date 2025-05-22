@@ -129,6 +129,21 @@ const manejoDelBotonGuardar = () => {
   newName &&  localStorage.setItem("nombre", newName);
 }
 
+//NO HACER
+//window.aLlamadaBotonGuardar = manejoDelBotonGuardar;
+
+/* 
+¿Qué es el addEvenListener
+es un método que permite escuchar eventos (como click, keydom, submit, etc.) es un elemento del DOM,y ejecutar una funcion cuando ese evento ocurre.
+
+*/
+const refSaveButton = document.getElementById("btnGuardar");
+refSaveButton.addEventListener( "click", manejoDelBotonGuardar );
+
+const refNameInput = document.getElementById("nombreInput");
+refNameInput.addEventListener( " keydom", (event)=> {
+  console.log(event.key);
+});
 /*
   Programación síncrona.
  
@@ -153,11 +168,11 @@ const tercerPaso = () => {
   console.log("03 - Fin de mi programa");
 };
 
-/*
-primerPaso();
+
+/* primerPaso();
 segundoPaso(); // Este proceso demora tiempo
 tercerPaso();
-*/
+ */
 
 /*
  Programación asíncrona.
@@ -181,4 +196,11 @@ tercerPaso();
 
 
 
+const saludar= (nombre, nombreCh54, cohorte) => alert (`Hola ${nombre} de la ${cohorte}`);
+const saludarTranscurridoXSeg = (milisegundos) =>{
+  setTimeout (saludar, milisegundos, "Neo" ,"cecilia", "Ch54");
 
+}
+ console.log("Antes de saludar");
+ saludarTranscurridoXSeg(5000);
+ console.log ("Después de saludar");
