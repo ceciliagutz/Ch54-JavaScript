@@ -89,3 +89,4 @@ irPorElote(tiempo)
     })
     .catch((error) =>console.log(`Promesa rechazada`, error))
     .finally (() => console.log("Se ha terminado tu promesa"));
+    
