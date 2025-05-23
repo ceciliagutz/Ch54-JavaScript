@@ -122,7 +122,7 @@ irPorElElote(tiempo)
     .finally(() => console.log("Se ha terminado tu promesa"));
 
 
-    // ============= uso de async y await ==========================
+// ============= uso de async y await ==========================
 /*  const crisQuiereElote = async () =>{
     const tiempo = "tarde"; 
     const response = await irPorElElote( tiempo );
@@ -136,29 +136,70 @@ irPorElElote(tiempo)
  crisQuiereElote();
  */
 
- // ============= uso de async y await ==========================
- const crisQuiereElote = async () =>{
-try{
-    const tiempo = "tarde"; 
-    const response = await irPorElElote( tiempo );
-    console.log(response);
-    const respuestaBolsa = await numDeVueltas(response.vueltas);
-    console.log(respuestaBolsa);
-    const mensajeFinal = await ponerChilito();
-    console.log(mensajeFinal);
-   } catch (error) {
-     console.log(`Promesa rechazada`,error);
-   }
- }
- console.log("Msj 1");
- await crisQuiereElote();
- console.log("Msj 2");
+// ============= uso de async y await ==========================
+const crisQuiereElote = async () => {
+    try {
+        const tiempo = "tarde";
+        const response = await irPorElElote(tiempo);
+        console.log(response);
+        const respuestaBolsa = await numDeVueltas(response.vueltas);
+        console.log(respuestaBolsa);
+        const mensajeFinal = await ponerChilito();
+        console.log(mensajeFinal);
+    } catch (error) {
+        console.log(`Promesa rechazada`, error);
+    }
+}
+console.log("Msj 1");
+await crisQuiereElote();
+console.log("Msj 2");
 
-  // ============== Uso de la api fetch ====================
- const leerProductos = async ( url )=> {
-      const response = await fetch(url); // Obtener los datos en formato JSON
-      console.log(response);
-      const datosApi =  await response.json(); // Convertir de JSON a objetos de JavaScript
-      console.log( datosApi );
- }
- leerProductos("https://rickandmortyapi.com/api/character");
+// ============== Uso de la api fetch ====================
+async function myFunction() { } // Función asincrona 
+
+const leerProductos = async (url) => {
+    try {
+        const response = await fetch(url); // Obtener los datos en formato JSON
+        console.log(response);
+        const datosApi = await response.json(); // Convertir de JSON a objetos de JS
+        console.log(datosApi);
+        return datosApi;
+    } catch (error) {
+        console.log("No se pudo obtener los datos", error);
+    }
+}
+
+const construirTarjetaDeRickAndMorty = (personajes) => {
+
+    const tarjetas = personajes.map((personaje, index, array) => (
+        `
+        <div class = "col-10 col-md-4 col-lg-3">
+            <div class="card" >
+            <img src="${personaje.image}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"> ${personaje.name}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                    <a href="#" class="btn btn-primary">${personaje.species}</a>
+                </div>
+            </div>
+        </div>
+        `
+    ));
+
+    return tarjetas;
+}
+
+const insertarTarjetasAlDom = (tarjetas, idDOM = "cards") => {
+    const refDom = document.getElementById(idDOM);
+    refDom.innerHTML = tarjetas.join("");
+}
+
+const crearCardsDeRickAndMorty = async () => {
+    const data = await leerProductos("https://rickandmortyapi.com/api/character");
+    const personajes = data.results;
+    console.log(personajes);
+    const tarjetas =construirTarjetaDeRickAndMorty(personajes);
+    insertarTarjetasAlDom(tarjetas);
+}
+
+crearCardsDeRickAndMorty();
