@@ -1,11 +1,12 @@
 
-const name = "Cecilia";
-const Home = () =>{
+const Home = (props ) =>{
 
     return (
-        <div>
-            <h1>Hola {name}</h1>
-        </div>
+        <main>
+            <h1>Hola {props.name} </h1>
+            <h2>{props.hogwartsHome} </h2>
+        </main>
+
     );
 
 };
