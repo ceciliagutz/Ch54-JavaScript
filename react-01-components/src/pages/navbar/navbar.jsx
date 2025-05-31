@@ -1,13 +1,14 @@
 
-const NavBar = () =>{
+const NavBar = ({title}) =>{
 
     return (
         <nav>
-            <ul>
+            <h1>{title} </h1>
+            <ol>
                 <li>Severus Snape</li>
                 <li>Ron Weasly</li>
                 <li>Sirius Black</li>
-            </ul>       
+            </ol>       
      </nav>
     );
 
